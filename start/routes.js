@@ -16,6 +16,19 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+
+Route.resource('testa', 'SiteController').apiOnly()
+
+
+Route.post('/register','AuthController.register')
+Route.post('/authenticate','AuthController.authenticate')
+
+Route.get('/app', () => {
+  return {teste:'ok'}
+}).middleware(['auth'])
+
 Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+  return { greeting: 'Hello world in JSSON' }
 })
+
+
